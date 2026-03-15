@@ -85,7 +85,7 @@ export default function App() {
             </motion.span>
             <motion.h1 
               variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-extrabold leading-tight mb-6"
+              className="text-4xl md:text-5xl font-extrabold leading-tight mb-6"
             >
               Não somos apenas uma agência. Somos a camada de <span className="text-electric-cyan">Inteligência</span> e Performance que escala o seu lucro.
             </motion.h1>
@@ -237,9 +237,9 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { quote: "A AdNove triplicou nossa taxa de conversão em 4 meses através da implementação do CRM e otimização de campanhas.", name: "Ricardo Mendes", role: "CEO, TechFlow" },
-              { quote: "O agente de IA no WhatsApp é um divisor de águas. Atendemos fora do horário comercial com a mesma qualidade de um humano.", name: "Fernanda Lima", role: "Marketing Head, Solaris", border: true },
-              { quote: "Mais que uma agência, eles são parceiros de negócio. O nível técnico é incomparável com o que vemos no mercado hoje.", name: "André Silva", role: "Fundador, Nexus App" }
+              { quote: "Com o trabalho de marketing da Adnove já consegui fechar alguns novos projetos.", name: "Valeria Paes", role: "Valeria Paes Arquitetura" },
+              { quote: "Meu posicionamento no digital era muito ruim. Agora já estou recebendo vários contatos por dia.", name: "Adriana Potye", role: "Psicóloga Clínica", border: true },
+              { quote: "O segredo do nosso sucesso foi o ajuste na VSL. A agência conseguiu criar uma copy extremamente persuasiva e agressiva e com isso aumentamos em 70% nosso faturamento.", name: "Lucas Mendes", role: "Infoprodutor Digital" }
             ].map((testimonial, idx) => (
               <motion.div 
                 key={idx}
