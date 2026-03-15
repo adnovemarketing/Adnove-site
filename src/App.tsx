@@ -25,10 +25,14 @@ export default function App() {
         <div className="mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
           <div className="flex items-center">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center font-bold text-black text-xs">A</div>
-              <span className="text-xl font-extrabold tracking-tight uppercase italic text-white">AdNove</span>
-            </div>
+            <a href="#" className="flex items-center bg-white px-3 py-1.5 rounded-lg transition-transform hover:scale-105">
+              <img 
+                src="https://i.postimg.cc/05fd6538/Adnove_Fundo_branco.png" 
+                alt="AdNove Consultoria de Marketing Digital" 
+                className="h-6 w-auto"
+                referrerPolicy="no-referrer"
+              />
+            </a>
           </div>
           
           {/* Desktop Menu */}
@@ -287,15 +291,19 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 border-t border-white/5 bg-navy-dark text-gray-500">
         <div className="container mx-auto px-6 max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2 grayscale brightness-200 opacity-50">
-            <div className="w-6 h-6 bg-white rounded-md flex items-center justify-center font-bold text-black text-[10px]">A</div>
-            <span className="text-sm font-extrabold tracking-tight uppercase italic text-white">AdNove</span>
-          </div>
+          <a href="#" className="flex items-center bg-white px-3 py-1.5 rounded-lg opacity-90 hover:opacity-100 transition-all hover:scale-105">
+            <img 
+              src="https://i.postimg.cc/05fd6538/Adnove_Fundo_branco.png" 
+              alt="AdNove Consultoria de Marketing Digital" 
+              className="h-6 w-auto"
+              referrerPolicy="no-referrer"
+            />
+          </a>
           <div className="flex gap-8 text-sm">
             <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
             <a href="#" className="hover:text-white transition-colors">Privacidade</a>
           </div>
-          <p className="text-sm text-center md:text-left">© 2026 AdNove Intelligence. Todos os direitos reservados.</p>
+          <p className="text-sm text-center md:text-left">© 2026 AdNove Consultoria em Marketing. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>
