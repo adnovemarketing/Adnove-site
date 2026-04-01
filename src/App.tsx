@@ -232,7 +232,7 @@ export default function App() {
             {[
               { quote: "Com o trabalho de marketing da Adnove já consegui fechar alguns novos projetos.", name: "Valeria Paes", role: "Valeria Paes Arquitetura", image: "https://i.postimg.cc/T2WBdGq5/06.png" },
               { quote: "Meu posicionamento no digital era muito ruim. Agora já estou recebendo vários contatos por dia.", name: "Adriana Potye", role: "Psicóloga Clínica", border: true, image: "https://i.postimg.cc/43mBWbW7/03A.png" },
-              { quote: "O segredo do nosso sucesso foi o ajuste na VSL. A agência conseguiu criar uma copy extremamente persuasiva e agressiva e com isso aumentamos em 70% nosso faturamento.", name: "Lucas Mendes", role: "Infoprodutor Digital", image: "https://i.postimg.cc/PqSnw4P2/Lucas-Mendes.jpg" }
+              { quote: "Fizeram um site e também colocaram um agente de IA que responde meu Whatsapp o dia todo. Adorei!.", name: "Patricia Mariano", role: "Lash Designer", image: "https://i.ibb.co/0V8N9JM9/Paty-3.png" }
             ].map((testimonial, idx) => (
               <motion.div 
                 key={idx}
