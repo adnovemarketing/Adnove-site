@@ -341,16 +341,16 @@ export default function App() {
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 z-50 w-11 h-11 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+        className="fixed bottom-6 right-6 z-[9999] w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.6)] transition-all duration-300 group pointer-events-auto"
         aria-label="WhatsApp"
       >
         <img 
           src="https://i.postimg.cc/7LJ2KsqH/whatsapp.png" 
-          alt="WhatsApp Icon" 
-          className="w-6 h-6 object-contain"
+          alt="WhatsApp" 
+          className="w-7 h-7 object-contain drop-shadow-md"
           referrerPolicy="no-referrer"
         />
-        <span className="absolute right-full mr-4 bg-navy-light text-white px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/10">
+        <span className="absolute right-full mr-4 bg-navy-light text-white px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/10 shadow-xl">
           Fale Conosco
         </span>
       </motion.a>
