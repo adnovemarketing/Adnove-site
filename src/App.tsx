@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, PenTool, TrendingUp, Users, MessageSquare, Check, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -14,8 +14,22 @@ export default function App() {
   };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+  };
+
+  const hoverScale = {
+    whileHover: { scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } },
+    whileTap: { scale: 0.95 }
+  };
+
+  const cardHover = {
+    whileHover: { 
+      y: -8, 
+      scale: 1.02,
+      boxShadow: "0 20px 40px rgba(0, 242, 255, 0.1)",
+      transition: { duration: 0.4, ease: "easeOut" } 
+    }
   };
 
   return (
@@ -27,9 +41,9 @@ export default function App() {
             {/* Logo */}
             <a href="#" className="flex items-center transition-transform hover:scale-105">
               <img 
-                src="https://i.postimg.cc/m2MK5k8F/Logo-para-site.png" 
+                src="https://i.postimg.cc/zfLhpHq7/Nova-Logo.png" 
                 alt="AdNove Consultoria de Marketing Digital" 
-                className="h-10 md:h-[58px] w-auto"
+                className="h-[60px] md:h-[87px] w-auto"
                 referrerPolicy="no-referrer"
               />
             </a>
@@ -42,9 +56,14 @@ export default function App() {
             <a href="#resultados" className="hover:text-blue-600 transition-colors">Resultados</a>
           </div>
           
-          <a href="https://api.whatsapp.com/send/?phone=551931405902&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all duration-300">
+          <motion.a 
+            {...hoverScale}
+            href="https://api.whatsapp.com/send/?phone=551931405902&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" 
+            target="_blank" rel="noopener noreferrer" 
+            className="hidden md:inline-flex bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all duration-300"
+          >
             Diagnóstico Gratuito
-          </a>
+          </motion.a>
 
           {/* Mobile Menu Toggle */}
           <button className="md:hidden text-gray-800 hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>
@@ -64,7 +83,7 @@ export default function App() {
               <a href="#servicos" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">Serviços</a>
               <a href="#tecnologia" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">Tecnologia</a>
               <a href="#resultados" onClick={closeMobileMenu} className="hover:text-blue-600 transition-colors py-2">Resultados</a>
-              <a href="https://api.whatsapp.com/send/?phone=551931405902&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all duration-300 text-center mt-2">
+              <a href="https://api.whatsapp.com/send/?phone=5519982980516&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu} className="bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all duration-300 text-center mt-2">
                 Diagnóstico Gratuito
               </a>
             </div>
@@ -88,29 +107,52 @@ export default function App() {
               Full Service & Tech Agency
             </motion.span>
             <motion.h1 
-              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.15 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
             >
-              Não somos apenas uma agência. Somos a camada de <span className="text-electric-cyan">Inteligência</span> e Performance que escala o seu lucro.
+              Seu WhatsApp é um <span className="text-electric-cyan">balde furado</span>: Pare de queimar dinheiro com anúncios que morrem no silêncio do atendimento.
             </motion.h1>
             <motion.p 
-              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed mx-auto"
+              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl leading-relaxed mx-auto"
             >
-              Unimos estratégia de dados, tecnologia proprietária e criatividade para transformar cliques em clientes fiéis e faturamento recorde.
+              Instalamos o Sistema de Vendas Slim: Landing Pages de alta conversão integradas a Agentes de IA que qualificam, respondem e fazem vendas no seu WhatsApp 24/7. Sem aumentar sua equipe.
             </motion.p>
             <motion.div 
-              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.3, duration: 0.8 }}
+              variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <a href="https://api.whatsapp.com/send/?phone=551931405902&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-electric-cyan text-navy-dark px-6 py-4 md:px-8 rounded-lg font-bold text-base md:text-lg hover:scale-105 transition-transform glow-cyan text-center">
-                Agendar Consultoria Estratégica
-              </a>
-              <a href="#servicos" className="inline-flex items-center justify-center border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-4 md:px-8 rounded-lg font-semibold text-base md:text-lg transition-all text-center">
+              <motion.a 
+                {...hoverScale}
+                href="https://api.whatsapp.com/send/?phone=5519982980516&text=Ol%C3%A1%21+Quero+fazer+uma+auditoria+gratuita+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" 
+                target="_blank" rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center bg-electric-cyan text-navy-dark px-6 py-4 md:px-8 rounded-lg font-bold text-base md:text-lg glow-cyan text-center"
+              >
+                Quero uma Auditoria Gratuita
+              </motion.a>
+              <motion.a 
+                {...hoverScale}
+                href="#servicos" 
+                className="inline-flex items-center justify-center border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-4 md:px-8 rounded-lg font-semibold text-base md:text-lg transition-all text-center"
+              >
                 Conhecer Soluções
-              </a>
+              </motion.a>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section id="problema" className="py-24 bg-white text-navy-dark">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-8 text-red-600">O cemitério de leads da sua empresa.</h2>
+            <p className="text-xl md:text-2xl leading-relaxed mb-8">
+              Você gasta em anúncios, o lead chega no WhatsApp, mas sua equipe demora 30 minutos para responder. Nesse tempo, ele já comprou do concorrente.
+            </p>
+            <p className="text-lg md:text-xl font-bold bg-navy-dark text-white inline-block px-6 py-3 rounded-lg">
+              Você não precisa de "mais tráfego", você precisa parar de queimar o que já chega.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -124,8 +166,8 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: PenTool, title: "Conteúdo", desc: "Estratégia criativa focada em retenção e autoridade, transformando sua marca em uma referência no nicho." },
-              { icon: TrendingUp, title: "Performance", desc: "Gestão de tráfego pago baseada em dados reais, otimizando seu ROI com as melhores ferramentas do mercado." },
+              { icon: PenTool, title: "Engenharia de Conversão", desc: "Estratégia criativa focada em retenção e autoridade, transformando sua marca em uma referência no nicho." },
+              { icon: TrendingUp, title: "Arbitragem de Atenção", desc: "Gestão de tráfego pago baseada em dados reais, otimizando seu ROI com as melhores ferramentas do mercado." },
               { icon: Users, title: "CRM Próprio", desc: "Gestão de relacionamento customizada para o seu pipeline de vendas, centralizando dados em um só lugar." },
               { icon: MessageSquare, title: "Agentes IA", desc: "Atendimento via WhatsApp automatizado por IA que qualifica leads e fecha vendas 24 horas por dia." }
             ].map((service, idx) => (
@@ -133,7 +175,8 @@ export default function App() {
                 key={idx}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: idx * 0.1, duration: 0.6 } } }}
-                className="glass-card p-8 rounded-2xl hover:border-electric-cyan/50 hover:brightness-110 hover:-translate-y-1 transition-all group"
+                {...cardHover}
+                className="glass-card p-8 rounded-2xl hover:border-electric-cyan/50 hover:brightness-110 transition-all group cursor-default"
               >
                 <div className="w-12 h-12 mb-6 text-electric-cyan">
                   <service.icon size={32} strokeWidth={1.5} />
@@ -154,7 +197,7 @@ export default function App() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
             className="lg:w-1/2"
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Controle total e Atendimento 24/7 na palma da mão</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Conheça o Agente de Elite IA.</h2>
             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
               Nossa stack tecnológica integra um CRM de alta performance com agentes de Inteligência Artificial para garantir que nenhum lead seja perdido e toda interação seja uma oportunidade de venda.
             </p>
@@ -163,13 +206,19 @@ export default function App() {
                 <div className="w-5 h-5 bg-electric-cyan rounded-full flex items-center justify-center shrink-0">
                   <Check size={12} className="text-navy-dark stroke-[3]" />
                 </div>
-                <span>Dashboard em tempo real para tomada de decisão</span>
+                <span className="font-bold">Resposta em 10 segundos: <span className="font-normal text-gray-400">Nunca mais deixe um lead esfriar.</span></span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5 bg-electric-cyan rounded-full flex items-center justify-center shrink-0">
                   <Check size={12} className="text-navy-dark stroke-[3]" />
                 </div>
-                <span>Automação inteligente de fluxos de venda</span>
+                <span className="font-bold">Qualificação Automática: <span className="font-normal text-gray-400">O robô separa os curiosos dos compradores reais antes de passar para o seu time.</span></span>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-electric-cyan rounded-full flex items-center justify-center shrink-0">
+                  <Check size={12} className="text-navy-dark stroke-[3]" />
+                </div>
+                <span className="font-bold">Escala Infinita: <span className="font-normal text-gray-400">Atenda 10 ou 1.000 pessoas simultaneamente com o mesmo custo fixo.</span></span>
               </li>
             </ul>
           </motion.div>
@@ -205,9 +254,10 @@ export default function App() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, x: -20, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="absolute -bottom-4 left-2 md:-bottom-10 md:-left-10 z-20 glass-card p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 max-w-[280px] md:max-w-xs border-electric-cyan/30"
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="absolute -bottom-4 left-2 md:-bottom-10 md:-left-10 z-20 glass-card p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 max-w-[280px] md:max-w-xs border-electric-cyan/30 cursor-default"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <MessageSquare className="w-5 h-5 md:w-6 md:h-6 text-white fill-white" />
@@ -238,7 +288,8 @@ export default function App() {
                 key={idx}
                 initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: idx * 0.2, duration: 0.6 } } }}
-                className={`glass-card p-8 rounded-2xl relative ${testimonial.border ? 'border-electric-cyan/30' : ''}`}
+                {...cardHover}
+                className={`glass-card p-8 rounded-2xl relative cursor-default ${testimonial.border ? 'border-electric-cyan/30' : ''}`}
               >
                 <div className="text-electric-cyan mb-4">
                   <Quote size={32} className="fill-current" />
@@ -268,7 +319,8 @@ export default function App() {
             {/* Sócio 1 */}
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="flex flex-col items-center"
+              whileHover={{ y: -5 }}
+              className="flex flex-col items-center group"
             >
               <div className="w-48 h-48 mb-8 rounded-full bg-gray-200 overflow-hidden shadow-md flex-shrink-0">
                 {/* Profile Image */}
@@ -285,7 +337,8 @@ export default function App() {
             {/* Sócio 2 */}
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
-              className="flex flex-col items-center"
+              whileHover={{ y: -5 }}
+              className="flex flex-col items-center group"
             >
               <div className="w-48 h-48 mb-8 rounded-full bg-gray-200 overflow-hidden shadow-md flex-shrink-0">
                 {/* Profile Image */}
@@ -312,11 +365,16 @@ export default function App() {
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-electric-cyan opacity-10 rounded-full blur-3xl"></div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6">Pronto para o próximo nível de escala?</h2>
             <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-              Não deixe seu lucro na mesa por falta de tecnologia e estratégia. Nossos especialistas estão prontos para analisar o seu negócio.
+              Não somos uma agência de "postzinhos". Somos uma unidade de inteligência focada em lucro líquido.
             </p>
-            <a href="https://api.whatsapp.com/send/?phone=551931405902&text=Ol%C3%A1%21+Quero+fazer+um+diagn%C3%B3stico+do+meu+neg%C3%B3cio&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="inline-block bg-electric-cyan text-navy-dark px-6 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-xl hover:scale-105 transition-all glow-cyan uppercase tracking-wide">
-              Solicitar Diagnóstico Gratuito
-            </a>
+            <motion.a 
+              {...hoverScale}
+              href="https://api.whatsapp.com/send/?phone=5519982980516&text=Ol%C3%A1%21+Quero+agendar+um+diagn%C3%B3stico+de+escala&type=phone_number&app_absent=0" 
+              target="_blank" rel="noopener noreferrer" 
+              className="inline-block bg-electric-cyan text-navy-dark px-6 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-xl transition-all glow-cyan uppercase tracking-wide"
+            >
+              Agendar Diagnóstico de Escala
+            </motion.a>
             <p className="mt-6 text-sm text-gray-500">Vagas limitadas para novos parceiros este mês.</p>
           </motion.div>
         </div>
@@ -332,22 +390,60 @@ export default function App() {
           <p className="text-sm text-center md:text-left">© 2026 AdNove Consultoria em Marketing. Todos os direitos reservados.</p>
         </div>
       </footer>
+
+      {/* Cookie Consent Banner */}
+      {(() => {
+        const [show, setShow] = useState(false);
+        useEffect(() => {
+          const consent = localStorage.getItem('cookieConsent');
+          if (!consent) setShow(true);
+        }, []);
+        
+        if (!show) return null;
+        
+        return (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:w-[500px] z-[10000] p-4 bg-white/90 backdrop-blur-md rounded-xl shadow-2xl border border-gray-200"
+            role="alert"
+          >
+            <p className="text-sm text-gray-800 mb-4">
+              Utilizamos cookies para melhorar sua experiência de navegação e analisar o tráfego do site. Ao continuar navegando, você concorda com nossa Política de Privacidade.
+            </p>
+            <div className="flex flex-col md:flex-row gap-2">
+              <button onClick={() => { localStorage.setItem('cookieConsent', 'accepted'); setShow(false); }} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition" aria-label="Aceitar cookies">Aceitar</button>
+              <button onClick={() => { localStorage.setItem('cookieConsent', 'declined'); setShow(false); }} className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-300 transition" aria-label="Recusar cookies">Recusar</button>
+              <a href="/politica-de-privacidade" className="text-blue-600 text-sm font-medium underline flex items-center justify-center" aria-label="Ver política de privacidade">Política de Privacidade</a>
+            </div>
+          </motion.div>
+        );
+      })()}
       {/* Floating WhatsApp Button */}
       <motion.a 
-        href="https://wa.me/554784641781?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20marketing%20para%20minha%20empresa"
+        href="https://wa.me/5519982980516?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20marketing%20para%20minha%20empresa"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.1 }}
+        animate={{ 
+          opacity: 1, 
+          scale: [1, 1.05, 1],
+        }}
+        transition={{ 
+          duration: 3, 
+          repeat: Infinity, 
+          repeatType: "reverse",
+          ease: "easeInOut"
+        }}
+        whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 z-[9999] w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.6)] transition-all duration-300 group pointer-events-auto"
+        className="fixed bottom-6 right-6 z-[9999] w-[53px] h-[53px] bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.6)] transition-shadow duration-300 group pointer-events-auto"
         aria-label="WhatsApp"
       >
         <img 
-          src="https://i.postimg.cc/7LJ2KsqH/whatsapp.png" 
+          src="https://i.postimg.cc/c48Jrhfj/whatsapp-2.png" 
           alt="WhatsApp" 
-          className="w-7 h-7 object-contain drop-shadow-md"
+          className="w-8 h-8 object-contain drop-shadow-md"
           referrerPolicy="no-referrer"
         />
         <span className="absolute right-full mr-4 bg-navy-light text-white px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/10 shadow-xl">
